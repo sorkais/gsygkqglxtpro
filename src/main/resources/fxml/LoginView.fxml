@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.attendance.controller.LoginController">
+  <center>
+    <VBox spacing="12" alignment="CENTER">
+      <Label text="公司员工考勤管理系统" styleClass="title" />
+      <VBox spacing="8" styleClass="card" prefWidth="360">
+        <TextField fx:id="usernameField" promptText="用户名" />
+        <PasswordField fx:id="passwordField" promptText="密码" />
+        <HBox spacing="8" alignment="CENTER_RIGHT">
+          <Button text="登录" onAction="#onLogin" defaultButton="true" />
+          <Button text="注册" onAction="#goRegister" />
+        </HBox>
+        <Label fx:id="messageLabel" />
+      </VBox>
+    </VBox>
+  </center>
+</BorderPane>
+

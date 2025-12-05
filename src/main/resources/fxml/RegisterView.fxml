@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.attendance.controller.RegisterController">
+  <center>
+    <VBox spacing="12" alignment="CENTER">
+      <Label text="注册账户" styleClass="title" />
+      <VBox spacing="8" styleClass="card" prefWidth="360">
+        <TextField fx:id="usernameField" promptText="用户名" />
+        <PasswordField fx:id="passwordField" promptText="密码" />
+        <ChoiceBox fx:id="roleChoice" />
+        <HBox spacing="8" alignment="CENTER_RIGHT">
+          <Button text="提交注册" onAction="#onRegister" defaultButton="true" />
+          <Button text="返回登录" onAction="#goLogin" />
+        </HBox>
+        <Label fx:id="messageLabel" />
+      </VBox>
+    </VBox>
+  </center>
+</BorderPane>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.attendance.controller.UserDashboardController">
+  <top>
+    <HBox spacing="8" alignment="CENTER_LEFT">
+      <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+      <Label text="用户控制台" styleClass="title" />
+      <Pane HBox.hgrow="ALWAYS" />
+      <Button text="退出登录" onAction="#logout" />
+    </HBox>
+  </top>
+  <center>
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="我的考勤" closable="false">
+          <content>
+            <VBox spacing="10">
+              <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+              <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label fx:id="todayLabel" />
+                <Button text="上班打卡" onAction="#checkInNow" />
+                <Button text="下班打卡" onAction="#checkOutNow" />
+              </HBox>
+              <TableView fx:id="myAttendanceTable" prefHeight="420">
+                <columns>
+                  <TableColumn fx:id="colDate" text="日期" prefWidth="120" />
+                  <TableColumn fx:id="colIn" text="上班时间" prefWidth="100" />
+                  <TableColumn fx:id="colOut" text="下班时间" prefWidth="100" />
+                  <TableColumn fx:id="colStatus" text="状态" prefWidth="100" />
+                  <TableColumn fx:id="colNote" text="备注" prefWidth="160" />
+                </columns>
+              </TableView>
+            </VBox>
+          </content>
+        </Tab>
+        <Tab text="个人信息" closable="false">
+          <content>
+            <VBox spacing="10">
+              <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+              <GridPane hgap="8" vgap="8">
+                <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" minWidth="100" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+                </columnConstraints>
+                <rowConstraints>
+                  <RowConstraints minHeight="30"/>
+                  <RowConstraints minHeight="30"/>
+                  <RowConstraints minHeight="30"/>
+                  <RowConstraints minHeight="30"/>
+                  <RowConstraints minHeight="30"/>
+                  <RowConstraints minHeight="30"/>
+                </rowConstraints>
+                <Label text="姓名" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="profileName" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                <Label text="部门" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="profileDept" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                <Label text="职位" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextField fx:id="profilePos" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                <Label text="电话" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <TextField fx:id="profilePhone" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                <Label text="入职日期" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <DatePicker fx:id="profileHireDate" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                <Label text="状态" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                <TextField fx:id="profileStatus" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+              </GridPane>
+              <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="保存信息" onAction="#saveProfile" />
+              </HBox>
+            </VBox>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </center>
+</BorderPane>
+

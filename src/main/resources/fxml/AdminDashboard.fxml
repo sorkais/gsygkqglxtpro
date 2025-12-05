@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.attendance.controller.AdminDashboardController">
+  <top>
+    <HBox spacing="8" alignment="CENTER_LEFT">
+      <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+      <Label text="管理员控制台" styleClass="title" />
+      <Pane HBox.hgrow="ALWAYS" />
+      <Button text="退出登录" onAction="#logout" />
+    </HBox>
+  </top>
+  <center>
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="员工管理" closable="false">
+          <content>
+            <VBox spacing="8">
+              <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+              <HBox spacing="8">
+                <TextField fx:id="empName" promptText="姓名" />
+                <TextField fx:id="empDept" promptText="部门" />
+                <TextField fx:id="empPos" promptText="职位" />
+                <TextField fx:id="empPhone" promptText="电话" />
+                <Button text="新增/保存" onAction="#saveEmployee" />
+              </HBox>
+              <TableView fx:id="employeeTable" prefHeight="400">
+                <columns>
+                  <TableColumn fx:id="colId" text="员工编号" prefWidth="80" />
+                  <TableColumn fx:id="colName" text="姓名" prefWidth="120" />
+                  <TableColumn fx:id="colDept" text="部门" prefWidth="120" />
+                  <TableColumn fx:id="colPos" text="职位" prefWidth="120" />
+                  <TableColumn fx:id="colPhone" text="电话" prefWidth="140" />
+                </columns>
+              </TableView>
+              <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="编辑选中" onAction="#editSelected" />
+                <Button text="删除选中" onAction="#deleteSelected" />
+                <Button text="刷新" onAction="#refreshEmployees" />
+              </HBox>
+            </VBox>
+          </content>
+        </Tab>
+        <Tab text="考勤管理" closable="false">
+          <content>
+            <VBox spacing="8">
+              <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+              <DatePicker fx:id="attDate" />
+              <HBox spacing="8">
+                <TextField fx:id="attEmpId" promptText="员工编号" />
+                <TextField fx:id="attCheckIn" promptText="上班时间 HH:mm" />
+                <TextField fx:id="attCheckOut" promptText="下班时间 HH:mm" />
+                <TextField fx:id="attStatus" promptText="状态(正常/迟到/早退/缺勤)" />
+                <Button text="记录/保存" onAction="#saveAttendance" />
+              </HBox>
+              <TableView fx:id="attendanceTable" prefHeight="400">
+                <columns>
+                  <TableColumn fx:id="attColId" text="编号" prefWidth="60" />
+                  <TableColumn fx:id="attColEmp" text="员工编号" prefWidth="100" />
+                  <TableColumn fx:id="attColDate" text="日期" prefWidth="120" />
+                  <TableColumn fx:id="attColIn" text="上班时间" prefWidth="100" />
+                  <TableColumn fx:id="attColOut" text="下班时间" prefWidth="100" />
+                  <TableColumn fx:id="attColStatus" text="状态" prefWidth="100" />
+                  <TableColumn fx:id="attColNote" text="备注" prefWidth="160" />
+                </columns>
+              </TableView>
+              <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="编辑选中" onAction="#editAttendanceSelected" />
+                <Button text="删除选中" onAction="#deleteAttendanceSelected" />
+                <Button text="刷新" onAction="#refreshAttendance" />
+              </HBox>
+            </VBox>
+          </content>
+        </Tab>
+        <Tab text="账号管理" closable="false">
+          <content>
+            <VBox spacing="8">
+              <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+              <TableView fx:id="userTable" prefHeight="400">
+                <columns>
+                  <TableColumn fx:id="userColId" text="账号编号" prefWidth="100" />
+                  <TableColumn fx:id="userColUsername" text="用户名" prefWidth="160" />
+                  <TableColumn fx:id="userColRole" text="角色" prefWidth="120" />
+                  <TableColumn fx:id="userColCreated" text="注册时间" prefWidth="180" />
+                </columns>
+              </TableView>
+              <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="设为管理员" onAction="#makeAdmin" />
+                <Button text="设为普通用户" onAction="#makeUser" />
+                <Button text="重置密码为123456" onAction="#resetPassword" />
+                <Button text="删除账号" onAction="#deleteUser" />
+                <Button text="刷新" onAction="#refreshUsers" />
+              </HBox>
+            </VBox>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </center>
+</BorderPane>
+
